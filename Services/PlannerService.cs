@@ -58,6 +58,11 @@ namespace DesktopProjectLib.Services
 
             if (weekDaysEnum != null) items = items.Where(w => w.WeekDay == weekDaysEnum);
 
+            if(typeof(T) == typeof(Models.Meeting) && (beforeHour !=null || partial != null || rescheduled != null))
+            {
+                throw new Exception("Skibidi");
+            }
+
             if (typeof(T) == typeof(Models.Meeting) && location != null)
             {
                 items = items.Cast<Models.Meeting>()

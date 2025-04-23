@@ -10,7 +10,7 @@ namespace DesktopProjectLib.Models
     public class Meeting : PlannerItem
     {
         public string Location { get; set; }
-        public Meeting(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay, DateTime creationDate, string location) : base(name, dscription, priority, difficulty, status, weekDay, creationDate)
+        public Meeting(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty,  WeekDaysEnum weekDay, DateTime creationDate, string location) : base(name, dscription, priority, difficulty, weekDay, creationDate)
         {
             Location = location;    
         }
@@ -18,6 +18,12 @@ namespace DesktopProjectLib.Models
         public override string ToString()
         {
             return $"{base.ToString()}, location: {Location}";
+        }
+
+        public void UpdatePlannerItem(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, WeekDaysEnum weekDay, string location)
+        {
+            Location = location; 
+            UpdatePlannerItem(name, dscription, priority, difficulty, weekDay);
         }
     }
 }

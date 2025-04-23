@@ -11,7 +11,7 @@ namespace DesktopProjectLib.Models
     {
 
         public TimeOnly Time {  get; set; }
-        public Reminder(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay, DateTime creationDate, TimeOnly time) : base(name, dscription, priority, difficulty, status, weekDay, creationDate)
+        public Reminder(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, WeekDaysEnum weekDay, DateTime creationDate, TimeOnly time) : base(name, dscription, priority, difficulty, weekDay, creationDate)
         {
             this.Time = time;   
         }
@@ -19,6 +19,12 @@ namespace DesktopProjectLib.Models
         public override string ToString()
         {
             return $"{base.ToString()}, time: {Time}";
+        }
+
+        public void UpdatePlannerItem(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, WeekDaysEnum weekDay, TimeOnly time)
+        {
+            Time = time; 
+            UpdatePlannerItem(name, dscription, priority, difficulty, weekDay);
         }
     }
 }

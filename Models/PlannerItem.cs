@@ -14,17 +14,16 @@ namespace DesktopProjectLib.Models
         public string Description { get; set; }
         public PriorityEnum Priority { get; set; }
         public DifficultyEnum Difficulty { get; set; }
-        public StatusEnum Status { get; set; }
+
         public WeekDaysEnum WeekDay { get; set; }
         public DateTime CreationDate { get; set; }
 
-        public PlannerItem(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay, DateTime creationDate)
+        public PlannerItem(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, WeekDaysEnum weekDay, DateTime creationDate)
         {
             Name = name;
             Description = dscription;
             Priority = priority;
             Difficulty = difficulty;
-            Status = status;
             WeekDay = weekDay;
             CreationDate = creationDate;
 
@@ -42,17 +41,16 @@ namespace DesktopProjectLib.Models
 
         public override string ToString()
         {
-            return $"Name: {Name}, description: {Description}, the priority: {Priority}, difficulty: {Difficulty}, status: {Status}, day of the week: {WeekDay}, creation date: {CreationDate}";
+            return $"Name: {Name}, description: {Description}, the priority: {Priority}, difficulty: {Difficulty}, day of the week: {WeekDay}, creation date: {CreationDate}";
         }
 
 
-        public void UpdatePlannerItem(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay)
+        public void UpdatePlannerItem(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, WeekDaysEnum weekDay)
         {
             Name = name;
             Description = dscription;
             Priority = priority;
             Difficulty = difficulty;
-            Status = status;
             WeekDay = weekDay;
         }
     }
