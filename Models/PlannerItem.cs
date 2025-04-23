@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesktopProjectLib
+namespace DesktopProjectLib.Models
 {
     public abstract class PlannerItem
     {
@@ -16,14 +16,10 @@ namespace DesktopProjectLib
         public DifficultyEnum Difficulty { get; set; }
         public StatusEnum Status { get; set; }
         public WeekDaysEnum WeekDay { get; set; }
-
-        //tutaj nie wiem czy nie lepiej dzień tygodnia zamiast daty? 
         public DateTime CreationDate { get; set; }
-        public DateTime DueDate { get; set; }
 
-        public PlannerItem(int id, string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay, DateTime creationDate, DateTime dueDate)
+        public PlannerItem(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay, DateTime creationDate)
         {
-            Id = id;
             Name = name;
             Description = dscription;
             Priority = priority;
@@ -31,7 +27,7 @@ namespace DesktopProjectLib
             Status = status;
             WeekDay = weekDay;
             CreationDate = creationDate;
-            DueDate = dueDate;
+
         }
 
         public override bool Equals(object? obj)
@@ -46,10 +42,18 @@ namespace DesktopProjectLib
 
         public override string ToString()
         {
-            return $"Name: {Name}, description: {Description}, the priority: {Priority}, difficulty: {Difficulty}, status: {Status}, day of the week: {WeekDay}, creation date: {CreationDate}, deadline date: {DueDate}";
+            return $"Name: {Name}, description: {Description}, the priority: {Priority}, difficulty: {Difficulty}, status: {Status}, day of the week: {WeekDay}, creation date: {CreationDate}";
         }
 
-        //metoda abstrakcyjna: 
-        public abstract void MarkAsCompleted();
+
+        public void UpdatePlannerItem(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay)
+        {
+            Name = name;
+            Description = dscription;
+            Priority = priority;
+            Difficulty = difficulty;
+            Status = status;
+            WeekDay = weekDay;
+        }
     }
 }
