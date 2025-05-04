@@ -1,0 +1,3 @@
+[submodule "Planner"]
+	path = Planner
+	url = https://github.com/OWoronin/Planner.git
