@@ -8,8 +8,8 @@ namespace DesktopProjectLib.Models
         public bool Rescheduled { get; set; }
         public StatusEnum Status { get; set; }
 
-        public Task(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay, DateTime creationDate, bool partial, bool rescheduled)
-            : base(name, dscription, priority, difficulty, weekDay, creationDate)
+        public Task(string name, string description, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay, DateTime creationDate, bool partial, bool rescheduled)
+            : base(name, description, priority, difficulty, weekDay, creationDate)
         {
             Partial = partial;
             Rescheduled = rescheduled;
@@ -26,12 +26,12 @@ namespace DesktopProjectLib.Models
             return $"{base.ToString()}, is this task divided into several days? {Partial}, is this task rescheduled? {Rescheduled}, status: {Status}";
         }
 
-        public void UpdatePlannerItem(string name, string dscription, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay, bool partial, bool rescheduled)
+        public void UpdatePlannerItem(string name, string description, PriorityEnum priority, DifficultyEnum difficulty, StatusEnum status, WeekDaysEnum weekDay, bool partial, bool rescheduled)
         {
             Partial = partial;
             Rescheduled = rescheduled;
             Status = status;
-            UpdatePlannerItem(name, dscription, priority, difficulty, weekDay);
+            UpdatePlannerItem(name, description, priority, difficulty, weekDay);
         }
     }
 
